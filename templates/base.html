@@ -6,12 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Automatic Diabetic Retinopathy Detection</title>
     <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://grayshift.io/dist/css/grayshift.min.css">
     
     <link href="{{ url_for('static', filename='css/main1.css') }}" rel="stylesheet">      
 </head>
 
 <body>
-    <nav class="navbar navbar-dark bg-dark">
+    <nav class="navbar navbar-dark bg-dark" style="background: #1d1b1b!important;">
         <div class="container">
             <h1><a class="navbar-brand" position="center" href="#">
             	DDR : Diabetic Retinopathy Detection Using Machine Learning
@@ -19,8 +20,9 @@
             
         </div>
     </nav>
-    <div class="container">
-        <div id="content" style="margin-top:2em">{% block content %}{% endblock %}</div>
+   
+    <div class="container-fluid" style="padding:0;">
+        <div id="content">{% block content %}{% endblock %}</div>
     </div>
 
 

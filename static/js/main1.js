@@ -21,15 +21,18 @@ $(document).ready(function () {
         $('#btn-predict').show();
         $('#result').text('');
         $('#result').hide();
+        $('#upload-file').hide();
         readURL(this);
     });
 
     // Predict
     $('#btn-predict').click(function () {
+
         var form_data = new FormData($('#upload-file')[0]);
 
         // Show loading animation
         $(this).hide();
+        $('#upload-file').show();
         $('.loader').show();
 
         // Make prediction by calling api /predict
