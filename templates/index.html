@@ -1,31 +1,71 @@
 {% extends "base.html" %} {% block content %}
 
-<h2>Diabetic Retinopathy  Detection</h2>
+<div class="card py-11 rounded-0">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg">
+                <div class="text-center text-lg-left">
+                    <h1 class="mb-5 fs-lg font-weight-extra-bold">Diabetic Retinopathy Detection</h1>
+                    <p class="mb-5 lead">Upload the retina images from your iris scannner.</p>
+                    <form id="upload-file" method="post" enctype="multipart/form-data">
+                        <label for="imageUpload" class="upload-label btn btn-sm btn-primary w-sm-100">
+                            Upload Image
+                        </label>
+                        <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
+                    </form>
 
-<div>
-    <form id="upload-file" method="post" enctype="multipart/form-data">
-        <label for="imageUpload" class="upload-label">
-            Choose...
-        </label>
-        <input type="file" name="file" id="imageUpload" accept=".png, .jpg, .jpeg">
-    </form>
+                    <button type="button" class="btn btn-primary btn-sm w-sm-100" id="btn-predict"
+                        style="display: none;">Predict Class!</button>
 
-    <div class="image-section" style="display:none;">
-        <div class="img-preview">
-            <div id="imagePreview">
+                </div>
+            </div>
+            <div class="col-lg">
+
+                <div class="image-section rounded" style="display:none;">
+                    <div class="img-preview">
+                        <div id="imagePreview">
+
+                        </div>
+                    </div>
+                    <div>
+                    </div>
+                </div>
+
+                <form id="dropzone-form" method="post" enctype="multipart/form-data">
+                <label class="w-100">
+                    <input type="file" name="file" accept=".png, .jpg, .jpeg" id="dropzone" class="d-none">
+                    <span class="dropzone">Select image for upload</span>
+                </label>
+                </form>
+
             </div>
         </div>
-        <div>
-            <button type="button" class="btn btn-primary btn-lg " id="btn-predict">Predict Class!</button>
+        <div class="row">
+            <div class="loader" style="display:none;"></div>
         </div>
     </div>
-
-    <div class="loader" style="display:none;"></div>
-
-    <h3 id="result">
-        <span> </span>
-    </h3>
-
+</div>
+<!-- result-->
+<div class="py-11" id="result" style="display: none;">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="mb-5 font-weight-bold">Result</h2>
+        </div>
+        <div class="row" style="border-radius: 5px;">
+            <div class="col-lg-12 col-md-12">
+                <div class="card bg-gray-1">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <h3 id="classPredicted" class="lead">
+                                Class Label:
+                            </h3>
+                        </div>
+                        <p id="message">loading...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 {% endblock %}
