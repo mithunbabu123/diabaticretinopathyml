@@ -1,9 +1,16 @@
 body {
-    background-color: #777;
+    background-color: #525252;
+}
+
+.bg-gray-1{
+    background:#777777!important;
+}
+.bg-gray-2{
+    background: #525252;
 }
 
 .img-preview {
-    width:450px;
+    width: 450px;
     height: 256px;
     position: relative;
     margin-top: 1em;
@@ -44,7 +51,14 @@ input[type="file"] {
     height: 50px;
     animation: spin 1s linear infinite;
 }
-
+footer{
+    position: absolute!important;
+    padding: 0!important;
+    width: 100%;
+    bottom: 0;
+    height: 10%;
+}
+}
 @keyframes spin {
     0% {
         transform: rotate(0deg);
@@ -55,6 +69,39 @@ input[type="file"] {
     }
 }
 
-h2 {
-    color: green;
+
+/* DROP ZONE */
+:root {
+    --border-dashed-color: var(--light-900)
+}
+
+@media (prefers-color-scheme:dark) {
+    :root {
+        --border-dashed-color: var(--dark-100)
+    }
+}
+
+.dropzone {
+    display: inline-block;
+    width: 100%;
+    height: 300px;
+    padding: var(--spacer-5);
+    font-weight: 500;
+    color: var(--body-color);
+    text-align: center;
+    cursor: pointer;
+    background-color: var(--card-bg);
+    border: 1px dashed hsl(0, 4%, 65%);
+    border-radius: var(--border-radius-lg);
+    transition: background-color .4s ease
+}
+
+@media (prefers-reduced-motion:reduce) {
+    .dropzone {
+        transition: none
+    }
+}
+
+.dropzone:hover {
+    background-color: var(--fill-bg)
 }
